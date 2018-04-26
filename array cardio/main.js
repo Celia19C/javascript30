@@ -76,14 +76,37 @@ function start() {
     //                 .map(link => link.textContent)
     //                 .filter(streeName => streetName.includes('de'))
 
+    
 //7. Sort exercise
 
-    const peopleOrdered = people.sort((personA, personB) => {
-	const personALastName = personA.split(', ')[0];
-	const personBLastName = personB.split(', ')[0];
-	return personALastName > personBLastName ? 1 : -1;
+//  const peopleOrdered = people.sort((lastOne, nextOne) => {
+// 	const [aLast, aFirst] = lastOne.split(', ');
+// 	const [bLast, bFirst] = nextOne.split(', ');
+// 	return aLast > bLast ? 1 : -1;
+// });
+//     console.log(peopleOrdered);
+
+ //Para ordenarlos incluso cuando haya personas con el mismo apelllido 
+    const alpha = people.sort(function(personA, personB){
+    const personALastName = personA.split(', ')[0];
+    const personBLastName = personB.split(', ')[0];
+    if(personALastName > personBLastName) {
+        return 1;
+    } else if (personALastName < personBLastName){
+        return -1;
+    } else {
+        const personAFirstName = personA.split(', ')[1];
+        const personBFirstName = personB.split(', ')[1];
+        if(personAFirstName > personBFirstName) {
+            return 1;
+
+        } else if (personAFirstName < personBFirstName) {
+            return -1;
+        }
+    }
 });
-// console.log(peopleOrdered)
+
+console.table(alpha);
 
 //8. Reduce exercise
 
