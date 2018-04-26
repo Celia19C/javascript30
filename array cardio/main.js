@@ -114,14 +114,24 @@ console.table(alpha);
     const data = [ 'car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 
     'bike', 'walk', 'car', 'van', 'car', 'struck']
 
-    const instances = data.reduce(function(obj, item){
-        if(!obj[item]){
-         obj[item]= 0;
+    const instances = data.reduce(function(accumulador, currentValue){
+        if(!accumulador[currentValue]){
+         accumulador[currentValue]= 0; //preguntamos por la propia propiedad que acabamos de crear
         }
-        obj[item]++
-        return obj;
+        accumulador[currentValue]++
+        return accumulador;
      }, {});
      console.log(instances);
+
+ //MENOS CRÍPTICO
+    //  const instances = data.reduce(function(accumulador, currentValue){
+    //     if(!accumulador.hasOwnProperty(currentValue)){
+    //      accumulador[currentValue]= 0;
+    //     }
+    //     accumulador[currentValue]++
+    //     return accumulador;
+    //  }, {});
+    //  console.log(instances);
     
 
 
