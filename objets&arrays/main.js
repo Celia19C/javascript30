@@ -12,7 +12,6 @@ name = 'Wesley';
 console.log(name, name2)
 
 
-
 //Let's say we have an array
 const players = ['Wes', 'Sarah', 'Ryan', 'Poopy'];
 
@@ -87,7 +86,7 @@ const wes = {
 console.clear();
 console.log(wes);
 
-const dev = Object.assign({}, wes)
+const dev = Object.assign({}, wes) // hace copi solo a anivel superficial, si hay un objeto dentro de un objeto, actua como referencia.
 
-const dev2 = JSON.parse(JSON.stringify(wes))
+const dev2 = JSON.parse(JSON.stringify(wes)) //para hacer copia profunda utilizamos esto. Primero convierte el objeto en una cadena, la copia y luego la convierte en objeto, lo parsea
 
